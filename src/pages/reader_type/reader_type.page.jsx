@@ -1,6 +1,6 @@
 import React from 'react';
 import TableReadersType from "../../components/table_readers_type/table_readers_type.component";
-import FormReaderType from "../../components/form_book/form_book.componenet";
+import FormReaderType from "../../components/form_reader_type/form_reader_type.componenet";
 
 const TypeReadersItemsPage = () => {
     return (
