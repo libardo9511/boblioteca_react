@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.readers-items-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.readers-items-header {
+    flex: 0 0 15%;
+}
+
+.readers-items-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: .5rem
+}
+
+.readers-items-footer {
+    flex: 0 0 15%;
+}
+
+.border-element {
+    border: 1px solid red;
+}
