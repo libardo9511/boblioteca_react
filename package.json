@@ -37,6 +37,7 @@
     "@material-ui/lab": "^4.0.0-alpha.54",
     "react-bootstrap": "^1.0.1",
     "react-router-dom": "^5.2.0",
+    "react-scroll": "^1.7.16",
     "react-toastify": "^6.0.5"
   }
 }

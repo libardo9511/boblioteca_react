@@ -4,10 +4,10 @@ import Books from "./pages/books/books-items.page";
 import Readers from "./pages/readers/readers-items.page";
 import ReadersType from "./pages/reader_type/reader_type.page";
 import ReadersTypeEdit from "./pages/reader_type/reader_type_edit.page";
-
+import BooksLendingPage from "./pages/book_lending/books-lending.page";
 import NavBar from "./components/navigate/navigate.component";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route path="/books/:id" exact component={Books}></Route>                             
           <Route path="/readers" exact component={Readers}></Route>
           <Route path="/readerstype" exact component={ReadersType}></Route>
+          <Route path="/lending" exact component={BooksLendingPage}></Route>
           <Route path="/readerstype/:id" exact component={ReadersTypeEdit}></Route>   
           <Redirect from="/" to="/books"></Redirect>       
         </Switch>

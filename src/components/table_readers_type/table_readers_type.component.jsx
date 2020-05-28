@@ -21,7 +21,7 @@ const TableReadersType = () => {
     return (
         <div className="col-md-8">
             <div className="row">
-                <table className="table table-striped table-hover">
+                <table className="table table-striped table-hover" data-search="true">
                     <TableHeadReadersType></TableHeadReadersType>
                     <TableBodyReadersType readerstype={readersTypeData}></TableBodyReadersType>
                 </table>
