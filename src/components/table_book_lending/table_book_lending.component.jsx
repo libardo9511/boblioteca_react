@@ -4,6 +4,9 @@ import TableHeadBooksLending from "./head_table_book_lending.component";
 import TableBodyBooksLending from "./body_table_book_lending.component";
 import SearchLoanBook from "../search_loan/search_loan_book.component";
 import './table_book_lending.style.css';
+import Alert from '@material-ui/lab/Alert';
+import DataTypeReader from "../data_type_readers/data_type_reader_modal.component";
+
 
 const TableBooksLending = () => {
     const [booksLendingData, setBookLendingData] = useState([]);
@@ -11,21 +14,42 @@ const TableBooksLending = () => {
 
     const [textSearchLoanValue, setTextSearchLoanValue] = useState("");
 
+    const [message, setMessage] = useState("");
+
+    const [showModalView, setShowModalView] = useState(false);
+
+
 
     const getBooksLending = async () => {
         const response = await fetch('http://localhost:3003/api/prestamos');
         const responseJSON = await response.json();
         setBookLendingData(responseJSON.prestamos);
+        setMessage("");
     }
 
     const getBooksLendingSearch = async () => {
         const response = await fetch(`http://localhost:3003/api/prestamos/lector/${textSearchLoanValue}`);
         const responseJSON = await response.json();
-        if (Object.keys(responseJSON.prestamos).length >= 1) {
-            setBookLendingData(responseJSON.prestamos);
+        console.log(responseJSON);
+        if (responseJSON.prestamos !== null) {
+            if (Object.keys(responseJSON.prestamos).length >= 1) {
+                setBookLendingData(responseJSON.prestamos);
+            } else {
+                setBookLendingData([]);
+                console.log(responseJSON.message);
+                setMessage("");
+            }
         } else {
             setBookLendingData([]);
+            setMessage(responseJSON.message);
         }
+
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        setTextSearchLoanValue("");
+        getBooksLending();
     }
 
     useEffect(() => {
@@ -38,9 +62,16 @@ const TableBooksLending = () => {
 
     return (
         <>
-            <div className="col-md-8">
+            <div className="col-md-8" >
                 <div className="row">
                     <div className="col-sm-12 col-md-6">
+                        <div className="dataTables_filter">
+                            <div className="col-sm-6">
+                                <button className="form-control btn btn-secondary" type="submit" onClick={(e) => {
+                                    onSubmit(e);
+                                }}>Show All</button>
+                            </div>
+                        </div>
                     </div>
                     <div className="col-sm-12 col-md-6">
                         <div className="dataTables_filter">
@@ -53,9 +84,16 @@ const TableBooksLending = () => {
                 </div>
                 <div className="dataTables_wrapper dt-bootstrap4">
                     <div className="row">
+                        {
+                            message !== ""
+                                ? <Alert severity="error">No Search Results - {message}</Alert>
+                                : <></>
+                        }
                         <table className="table table-striped table-hover">
                             <TableHeadBooksLending></TableHeadBooksLending>
-                            <TableBodyBooksLending booksLending={booksLendingData}></TableBodyBooksLending>
+                            <TableBodyBooksLending booksLending={booksLendingData} onEnabledModal={(showModal) => {
+                                setShowModalView(showModal);
+                            }}></TableBodyBooksLending>
                         </table>
                         <form>
                             <br></br>
@@ -66,6 +104,16 @@ const TableBooksLending = () => {
                     </div>
                 </div>
             </div>
+            {
+                showModalView
+                    ? <DataTypeReader onEnabledModal={(showModal, datos) => {
+                        console.log("papá: " + showModal.toString());
+                        console.log("papá datos: " + datos);
+                        
+                        setShowModalView(showModal);
+                    }}></DataTypeReader>
+                    : <></>
+            }
         </>
     );
 }

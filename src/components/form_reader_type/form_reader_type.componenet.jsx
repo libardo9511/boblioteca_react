@@ -2,15 +2,19 @@ import React from 'react';
 import { useState } from 'react';
 import Alert from '@material-ui/lab/Alert';
 
-const FormReaderType = () => {
+const FormReaderType = (props) => {
 
     const [idValue, setIdValue] = useState("");
     const [descriptionValue, setDescriptionValue] = useState("");
     const [message, setMessage] = useState();
 
+    const [updateTable, setUpdateTable] = userState(false);
+    const { refreshTable } = props;
+
     const onSubmit = (e) => {
         e.preventDefault();
         postReaderType();
+        refreshTable(true);
     }
 
     const handleDescriptionChange = (e) => {
@@ -31,16 +35,14 @@ const FormReaderType = () => {
         setDescriptionValue("");
     }
 
-
-
     return (
         <>
             {
                 message
                     ?
-                        <Alert onClose={() => { setMessage("") }}>Saved successfully: _Id: {idValue}</Alert>
-                    : 
-                        <></>
+                    <Alert onClose={() => { setMessage("") }}>Saved successfully: _Id: {idValue}</Alert>
+                    :
+                    <></>
             }
             <form onSubmit={onSubmit}>
                 <div className="form-group">
