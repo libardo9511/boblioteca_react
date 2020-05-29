@@ -18,6 +18,9 @@ const TableBooksLending = () => {
 
     const [showModalView, setShowModalView] = useState(false);
 
+    const [dataEdit, setDataEdit] = useState(null);
+
+
 
 
     const getBooksLending = async () => {
@@ -93,6 +96,8 @@ const TableBooksLending = () => {
                             <TableHeadBooksLending></TableHeadBooksLending>
                             <TableBodyBooksLending booksLending={booksLendingData} onEnabledModal={(showModal) => {
                                 setShowModalView(showModal);
+                            }} onEnabledModalData={(data) => {
+                                setDataEdit(data);
                             }}></TableBodyBooksLending>
                         </table>
                         <form>
@@ -106,10 +111,8 @@ const TableBooksLending = () => {
             </div>
             {
                 showModalView
-                    ? <DataTypeReader onEnabledModal={(showModal, datos) => {
+                    ? <DataTypeReader edit={dataEdit} onEnabledModal={(showModal) => {
                         console.log("papá: " + showModal.toString());
-                        console.log("papá datos: " + datos);
-                        
                         setShowModalView(showModal);
                     }}></DataTypeReader>
                     : <></>

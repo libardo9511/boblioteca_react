@@ -16,8 +16,8 @@ const TableReadersTypeBody = (props) => {
                     <th>{row.descripcion}</th>
                     <th>
                         <button type="submit" className="btn btn-success" onClick={() => getReadersTypeData(row._id)}>
-                        <Link to={`/readerstype/${row._id}`}>
-                            View
+                        <Link className="btn btn-success" to={`/readerstype/${row._id}`}>
+                            Edit
                         </Link></button>
                     </th>
                 </tr>

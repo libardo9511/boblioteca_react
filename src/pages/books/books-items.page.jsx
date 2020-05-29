@@ -1,7 +1,6 @@
 import React from 'react';
 import TableeBooks from "../../components/table_books/table_books.component";
 import FormBook from '../../components/form_book/form_book.componenet';
-import SearchBook from '../../components/search_book/search_book.component';
 
 const BooksItemsPage = () => {
     return (

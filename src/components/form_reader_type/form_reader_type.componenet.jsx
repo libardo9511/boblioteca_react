@@ -8,13 +8,10 @@ const FormReaderType = (props) => {
     const [descriptionValue, setDescriptionValue] = useState("");
     const [message, setMessage] = useState();
 
-    const [updateTable, setUpdateTable] = userState(false);
-    const { refreshTable } = props;
 
     const onSubmit = (e) => {
         e.preventDefault();
         postReaderType();
-        refreshTable(true);
     }
 
     const handleDescriptionChange = (e) => {
@@ -47,7 +44,7 @@ const FormReaderType = (props) => {
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="__description">Description</label>
-                    <input type="text" value={descriptionValue} className="form-control" onChange={handleDescriptionChange} placeholder="Enter a description" ></input>
+                    <input type="text" value={descriptionValue} className="form-control" onChange={handleDescriptionChange}></input>
                 </div>
                 <div className="form-group">
                     <button type="submit" className="btn btn-secondary btn-lg">Save</button>

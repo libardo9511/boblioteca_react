@@ -124,7 +124,7 @@ const FormBookLending = () => {
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label>ISBN</label>
-                    <input type="text" value={isbnValue} className="form-control" onChange={handleIsbnChange} placeholder="Enter isbn code" ></input>
+                    <input type="text" value={isbnValue} className="form-control" onChange={handleIsbnChange}></input>
                 </div>
                 {
                     showAlertIsbn
@@ -136,7 +136,7 @@ const FormBookLending = () => {
                 }
                 <div className="form-group">
                     <label>Reader</label>
-                    <input type="text" value={identificationValue} className="form-control" onChange={handleIdentificationChange} placeholder="Enter title" ></input>
+                    <input type="text" value={identificationValue} className="form-control" onChange={handleIdentificationChange}></input>
                 </div>
                 {
                     showAlertIdReader

@@ -121,31 +121,31 @@ const FormBook = () => {
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label>ISBN</label>
-                    <input type="text" value={isbnValue} className="form-control" onChange={handleIsbnChange} placeholder="Enter isbn code" ></input>
+                    <input type="text" value={isbnValue} className="form-control" onChange={handleIsbnChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Title</label>
-                    <input type="text" value={titleValue} className="form-control" onChange={handleTitleChange} placeholder="Enter title" ></input>
+                    <input type="text" value={titleValue} className="form-control" onChange={handleTitleChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Subtitle</label>
-                    <input type="text" value={subtitleValue} className="form-control" onChange={handleSubtitleChange} placeholder="Enter subtitle" ></input>
+                    <input type="text" value={subtitleValue} className="form-control" onChange={handleSubtitleChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Author</label>
-                    <input type="text" value={authorValue} className="form-control" onChange={handleAuthorChange} placeholder="Enter author" ></input>
+                    <input type="text" value={authorValue} className="form-control" onChange={handleAuthorChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Year</label>
-                    <input type="text" value={yearValue} className="form-control" onChange={handleYearChange} placeholder="Enter year of publication" ></input>
+                    <input type="text" value={yearValue} className="form-control" onChange={handleYearChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Editorial</label>
-                    <input type="text" value={editorialValue} className="form-control" onChange={handleEditorialChange} placeholder="Enter editorial" ></input>
+                    <input type="text" value={editorialValue} className="form-control" onChange={handleEditorialChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Copies</label>
-                    <input type="text" value={numCopiesValue} className="form-control" onChange={handleNumCopiesChange} placeholder="Number of copies" ></input>
+                    <input type="text" value={numCopiesValue} className="form-control" onChange={handleNumCopiesChange}></input>
                 </div>
                 <div className="form-group">
                     <label>Book Area</label>

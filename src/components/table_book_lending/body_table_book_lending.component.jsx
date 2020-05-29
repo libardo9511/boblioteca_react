@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 const BodyTableBookLending = (props) => {
 
-    const [dataSelected, setDataSelected] = useState(null);
-    const [showModalValue, setShowModalValue] = useState(false);
-
     const { onEnabledModal } = props;
-
+    const { onEnabledModalData } = props;
+    
     return (
         <tbody>
             {props.booksLending.map((row) => (
                 <tr key={row._id} onClick={() => {
-                    setDataSelected(row);
-                    onEnabledModal(true, row);
-                    console.log(row);
+                    onEnabledModalData(row);
+                    onEnabledModal(true);
                 }}>
                     <th>{row.idLibro.cod_isbn}</th>
                     <th>{row.idLector.identificacion}</th>

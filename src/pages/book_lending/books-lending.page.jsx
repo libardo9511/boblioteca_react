@@ -7,7 +7,7 @@ const BooksLendingPage = () => {
         <div className="row">
             <div className="col-md-4">
                 <div className="card card-body">
-                    <h3>Create new book</h3>
+                    <h3>Create new Loan</h3>
                     <FormBookLending></FormBookLending>
                 </div>
             </div>

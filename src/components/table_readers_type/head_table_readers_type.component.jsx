@@ -5,8 +5,8 @@ const HeadTableReadersType = () => {
         <thead>
             <tr>
                 <th className="th-sm" scope="col">Id</th>
-                <th className="th-sm" scope="col">Descripción</th>
-                <th className="th-sm" scope="col">View</th>
+                <th className="th-sm" scope="col">Description</th>
+                <th className="th-sm" scope="col">Edit</th>
             </tr>
         </thead>
     );

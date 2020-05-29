@@ -56,7 +56,10 @@ const EditModal = (props) => {
                         </div>
                         <div className="form-group row">
                             <div className="col-sm-10">
-                                <button type="button" className="btn btn-secondary float-right ml-4" data-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-secondary float-right ml-4" data-dismiss="modal" onClick={(e) => {
+                                    e.preventDefault();
+                                    history.push('/readerstype');
+                                }}>Close</button>
                                 <button type="submit" className="btn btn-primary float-right">Save changes</button>
                             </div>
                         </div>

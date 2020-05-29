@@ -72,9 +72,15 @@ const FormReader = () => {
         const responseJSON = await response.json();
         console.log({ responseJSON });
         setMessage(responseJSON);
+        setNameValue("");
+        setSurnameValue("");
+        setIdentificationValue("");
+        setEmailValue("");
+        setPhoneValue("");
+        setAdressValue("");
+        setIdReaderTypeValue("");
+
         setIdValue(responseJSON.lectorAlmacenar._id);
-        
-        
     }
 
     const getIdReaderType = () => {

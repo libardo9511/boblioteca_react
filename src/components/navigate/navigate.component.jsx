@@ -6,7 +6,7 @@ const NavBar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
                 <Link className="navbar-brand" to="/">
-                    Biblioteca
+                    Library
                 </Link>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav ml-auto">
