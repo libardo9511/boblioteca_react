@@ -13,20 +13,23 @@ const ModalReaderType = (props) => {
     const [dateCompleteLoan, setDateCompleteLoan] = useState("");
     const [dateExpectedLoan, setDateExpectedLoan] = useState("");
     const [dateReturnLoan, setDateReturnLoan] = useState("");
-    const [penaltyLoan, setPenaltyLoan] = useState("");
+    const [fineLoan, setFineLoan] = useState("");
 
     const updateData = () => {
-        let penaltyLoan = 1000;
+        let fineLoan = 1000;
         if (!edit.esPrestado) {
             setDateReturnLoan(edit.fecha_dev);
-            setPenaltyLoan(edit.multa);
+            setFineLoan(edit.multa);
         } else {
             let returnDate = new Date().toISOString().substring(0, 10);
             setDateReturnLoan(returnDate);
             let date1 = moment(edit.fecha_dev_esperada);
             let date2 = moment(returnDate);
             let diff = date2.diff(date1, 'days');
-            setPenaltyLoan(penaltyLoan * diff);
+            if (diff >= 0) {
+                setFineLoan(fineLoan * diff);
+            }
+            setFineLoan(edit.multa);
         }
 
     }
@@ -51,7 +54,7 @@ const ModalReaderType = (props) => {
                 fechaPrestamo: new Date(dateCompleteLoan),
                 fecha_dev_esperada: new Date(dateExpectedLoan),
                 fecha_dev: new Date(dateReturnLoan),
-                multa: penaltyLoan,
+                multa: fineLoan,
                 esPrestado: false
             })
         };
@@ -93,13 +96,13 @@ const ModalReaderType = (props) => {
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="id__reader" className="col-sm-2 col-form-label">Reader</label>
+                                <label htmlFor="id__reader" className="col-sm-2 col-form-label">Reader Id</label>
                                 <div className="col-sm-10">
                                     <input type="text" className="form-control" id="id__reader" value={idReaderLoan} readOnly></input>
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="datecompl__loan" className="col-sm-2 col-form-label">Fecha realizacion</label>
+                                <label htmlFor="datecompl__loan" className="col-sm-2 col-form-label">Date of loan</label>
                                 <div className="col-sm-10">
                                     <input type="text" className="form-control" id="datecompl__loan" value={dateCompleteLoan} readOnly></input>
                                 </div>
@@ -117,9 +120,9 @@ const ModalReaderType = (props) => {
                                 </div>
                             </div>
                             <div className="form-group row">
-                                <label htmlFor="penalty__load" className="col-sm-2 col-form-label">Penalty</label>
+                                <label htmlFor="penalty__load" className="col-sm-2 col-form-label">Fine</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control" id="penalty__load" value={penaltyLoan} readOnly></input>
+                                    <input type="text" className="form-control" id="penalty__load" value={fineLoan} readOnly></input>
                                 </div>
                             </div>
                         </form>

@@ -84,8 +84,15 @@ const FormBook = () => {
         console.log({ responseJSON });
         setMessage(responseJSON);
         setIdValue(responseJSON.libroAlmacenar._id);
-        onClickUp();
-
+        onClickUp();        
+        setIsbnValue("");
+        setTitleValue("");
+        setSubtitleValue("");
+        setAuthorValue("");
+        setYearValue("");
+        setEditorialValue("");
+        setNumCopiesValue("");
+        setIdBookArea("");
 
     }
 

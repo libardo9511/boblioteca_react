@@ -10,14 +10,6 @@ const TableBooks = (props) => {
                     <th>{row.titulo}</th>
                     <th>{row.autor}</th>
                     <th>{row.numEjemplares}</th>
-                    <th>
-                        <Link to={{
-                            pathname: '/books',
-                            state: { id: '456' }
-                        }}>
-                            View
-                        </Link>
-                    </th>
                 </tr>
             ))}
         </tbody>

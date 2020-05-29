@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Alert from '@material-ui/lab/Alert';
+import { animateScroll as scroll } from 'react-scroll';
+
 
 const FormReader = () => {
 
-    const [idValue, setIdValue] = useState("");    
+    const [idValue, setIdValue] = useState("");
     const [nameValue, setNameValue] = useState("");
     const [surnameValue, setSurnameValue] = useState("");
     const [identificationValue, setIdentificationValue] = useState("");
@@ -23,6 +25,10 @@ const FormReader = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         postReader();
+    }
+
+    const onClickUp = () => {
+        scroll.scrollToTop();
     }
 
     const handleNameChange = (e) => {
@@ -79,7 +85,7 @@ const FormReader = () => {
         setPhoneValue("");
         setAdressValue("");
         setIdReaderTypeValue("");
-
+        onClickUp();
         setIdValue(responseJSON.lectorAlmacenar._id);
     }
 
